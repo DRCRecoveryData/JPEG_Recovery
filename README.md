@@ -1,4 +1,4 @@
-# JPEG Recovery — JPEG recovery (PyQt6)
+# JPEG Recovery
 
 An independent, functional reimplementation of the original Anti-Ransomware
 Edition workflow. It rebuilds JPEG files whose headers and first part of the

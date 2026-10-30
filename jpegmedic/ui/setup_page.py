@@ -319,11 +319,13 @@ class SetupPage(QWidget):
         self.sampleless_quality.addItem("Auto (estimate)")
         for value in (60, 70, 75, 80, 85, 90, 95, 100):
             self.sampleless_quality.addItem(str(value))
+        self.sampleless_quality.setCurrentText("100")
         self.sampleless_quality.setToolTip(
-            "Quantisation tables are stored in the destroyed header.  Auto "
-            "estimates them from the compressed bit rate; choose a fixed "
-            "standard quality if the colours look wrong.  Use 100 for the "
-            "least visible blocking on detailed photos (file size will be larger)."
+            "Quantisation tables are stored in the destroyed header.  The "
+            "default is 100 (near-lossless, least visible blocking on detailed "
+            "photos, larger file).  Auto estimates the quality from the "
+            "compressed bit rate; choose a fixed standard quality if the "
+            "colours look wrong."
         )
         quality_row.addWidget(quality_label, 1)
         quality_row.addWidget(self.sampleless_quality)
@@ -406,7 +408,9 @@ class SetupPage(QWidget):
             settings.value("setup/sampleless", True, bool)
         )
         self.sampleless_quality.setCurrentText(
-            settings.value("setup/sampleless_quality", "Auto (estimate)", str)
+            settings.value(
+                "setup/sampleless_quality", "100", str
+            )
         )
         self.auto_adjust.setChecked(
             settings.value("setup/auto_adjust", False, bool)

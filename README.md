@@ -252,3 +252,10 @@ tools/make_demo.py          Synthetic demo generator
 tools/ui_smoke.py           End-to-end UI smoke test and screenshots
 demo/                       Safe synthetic demo data
 ```
+## Citation & Research
+
+If you use or reference this work, please cite the research publication:
+
+* **ResearchGate:** [Recovering Damaged Baseline JPEGs Without a Donor Header](https://www.researchgate.net/publication/417055954_Recovering_Damaged_Baseline_JPEGs_Without_a_Donor_Header)
+
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-Publication-blue?style=flat&logo=researchgate)](https://www.researchgate.net/publication/417055954_Recovering_Damaged_Baseline_JPEGs_Without_a_Donor_Header)

@@ -175,7 +175,7 @@ def _quant_tables(quality: int) -> dict[int, tuple[int, ...]]:
     result: dict[int, tuple[int, ...]] = {}
     for table_id, natural in ((0, _QUANT_LUMA), (1, _QUANT_CHROMA)):
         scaled = [
-            max(1, min(255, (value * scale + 50) // 100)) for value in natural
+            max(1, min(65535, (value * scale + 50) // 100)) for value in natural
         ]
         result[table_id] = tuple(scaled[ZIGZAG[i]] for i in range(64))
     return result
@@ -274,13 +274,18 @@ def estimate_quality(data_size: int, prefix: int, width: int, height: int) -> in
     This cannot be exact: quantisation tables are destroyed with the header.
     The estimate only chooses the closest standard table, and the user can
     override it in the interface.
+
+    The scale tops out at 100 (near-lossless) rather than 95, because 95
+    still introduces visible blocking on detailed photographs and the whole
+    point of the sample-free path is to give the best usable result when no
+    donor photo is available.
     """
     area = max(1, width * height)
     bpp = max(0, data_size - prefix) * 8.0 / area
     if bpp >= 0.72:
-        return 95
+        return 100
     if bpp >= 0.48:
-        return 93
+        return 95
     if bpp >= 0.36:
         return 90
     if bpp >= 0.30:

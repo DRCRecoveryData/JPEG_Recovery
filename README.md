@@ -38,8 +38,10 @@ re-encoding the image.
   recovery and from the Post-process page.
 - Quantization-table editor with 8×8 grid, live preview, scale sliders, reset,
   save, save-copy, and delete.
-- Standard IJG quality presets (q60–q95) that visibly change brightness,
-  contrast, and colour rendition without re-encoding the scan.
+- Standard IJG quality presets (q60–q100) that visibly change brightness,
+  contrast, and colour rendition without re-encoding the scan. q100 uses
+  near-lossless tables and is the better default when the photo has fine
+  detail; the file will be larger.
 - Optional post-process command (`%1` is replaced by the recovered file path).
 - Settings and window layout persist between sessions.
 
@@ -80,7 +82,7 @@ Start the app and use:
 **Sample-free demo:** clear the sample list, turn off **Find readable JPEGs in
 the source folder**, keep **Recover without a sample** enabled, and press
 **Recover files**. The four JPEGs are recovered with inferred 4:2:0 geometry and
-an estimated quality of 90.
+an estimated quality of 100 (near-lossless).
 
 **Sample-based demo:** leave the sample list empty and turn on **Find readable
 JPEGs in the source folder**; the app picks up `sample.jpg` automatically. Both

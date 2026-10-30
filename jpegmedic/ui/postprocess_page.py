@@ -180,12 +180,13 @@ class PostProcessPage(QWidget):
         quality_label.setObjectName("Hint")
         self.quality_combo = QComboBox()
         self.quality_combo.addItem("Keep current", None)
-        for quality in (60, 70, 75, 80, 85, 90, 95):
+        for quality in (60, 70, 75, 80, 85, 90, 95, 100):
             self.quality_combo.addItem(f"q{quality}", quality)
         self.quality_combo.setToolTip(
             "Replace the quantization tables with standard IJG tables.  This "
             "changes brightness, contrast and colour rendition immediately; "
-            "the compressed image data is not re-encoded."
+            "the compressed image data is not re-encoded.  q100 is near-lossless "
+            "and best for detailed photos (larger file)."
         )
         self.apply_quality_button = QPushButton("Apply")
         self.apply_quality_button.clicked.connect(self._apply_quality_preset)

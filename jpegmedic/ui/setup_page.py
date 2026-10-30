@@ -317,12 +317,13 @@ class SetupPage(QWidget):
         quality_label.setObjectName("Hint")
         self.sampleless_quality = QComboBox()
         self.sampleless_quality.addItem("Auto (estimate)")
-        for value in (60, 70, 75, 80, 85, 90, 95):
+        for value in (60, 70, 75, 80, 85, 90, 95, 100):
             self.sampleless_quality.addItem(str(value))
         self.sampleless_quality.setToolTip(
             "Quantisation tables are stored in the destroyed header.  Auto "
             "estimates them from the compressed bit rate; choose a fixed "
-            "standard quality if the colours look wrong."
+            "standard quality if the colours look wrong.  Use 100 for the "
+            "least visible blocking on detailed photos (file size will be larger)."
         )
         quality_row.addWidget(quality_label, 1)
         quality_row.addWidget(self.sampleless_quality)

@@ -179,6 +179,10 @@ point and preserves the restart interval in the rebuilt header.
   automatic estimate looks wrong. A sample gives exact tables.
 - Sample-free output widths are rounded up to a whole MCU (8 or 16 pixels,
   depending on sampling). A sample recovers the exact original dimensions.
+- The sample-free path defaults to quality 100 (near-lossless) so detailed
+  photos do not show the blocking grids that 95% can still produce. The
+  estimate from the compressed bit rate is still available as an option, and
+  the user can choose any standard quality from 60 to 100.
 - Scans with restart markers are fully supported by the sample-based path. The
   sample-free path generally needs a sample when restart intervals and MCU rows
   do not line up.
